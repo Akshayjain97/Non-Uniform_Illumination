@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser(description='PyTorch TinyImageNet Training')
 parser.add_argument('--lr', default=0.001, type=float, help='learning rate'); lr1 = '001'
 #parser.add_argument('--lr', default=0.01, type=float, help='learning rate'); lr1 = '01'
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
-parser.add_argument('--data_dir', default='/content/tiny-imagenet-200', type=str, help='path to data')
+parser.add_argument('--data_dir', default='/content/Caltech256', type=str, help='path to data')
 args = parser.parse_args()
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -77,10 +77,6 @@ transform_test = transforms.Compose([
 #bs = 32 #set batch size
 bs = 64 #set batch size
 #bs = 128 #set batch size
-# trainset = torchvision.datasets.ImageFolder('/content/d', transform=transform_train)
-# trainloader = torch.utils.data.DataLoader(trainset, batch_size=bs, shuffle=True, num_workers=2)
-# testset = torchvision.datasets.ImageFolder('/content/test', transform=transform_test)
-# testloader = torch.utils.data.DataLoader(testset, batch_size=bs, shuffle=False, num_workers=2)
 
 
 class ImageDataset(Dataset):
@@ -129,25 +125,25 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(net.parameters(), lr=args.lr); optimizer1 = 'Adam'
 
 if args.resume:
-    path_to_file = '/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7'
+    path_to_file = '/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7'
     # if os.path.exists(path_to_file):
     # Load checkpoint.
-    path_to_best_file = '/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7'
+    path_to_best_file = '/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7'
 
     print('==> Resuming from checkpoint..')
-    assert os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults'), 'Error: no checkpoint directory found!'
+    assert os.path.isdir('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults'), 'Error: no checkpoint directory found!'
     checkpoint = torch.load(path_to_file)
     best_checkpoint = torch.load(path_to_best_file)
     net.load_state_dict(best_checkpoint['net'])
     best_acc = best_checkpoint['acc']
     start_epoch = checkpoint['epoch']
 
-if not os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults'):
-  os.mkdir('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults')
+if not os.path.isdir('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults'):
+  os.mkdir('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults')
 
 # Training
 def train(epoch):
-    f = open('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+    f = open('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
     print('\nEpoch: %d' % epoch)
     net.train()
     train_loss = 0
@@ -174,7 +170,7 @@ def train(epoch):
     f.close()
 
 def test(epoch):
-    f = open('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+    f = open('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
     global best_acc
     net.eval()
     test_loss = 0
@@ -204,9 +200,9 @@ def test(epoch):
         'acc': acc,
         'epoch': epoch,
     }
-    if not os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults'):
-        os.mkdir('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults')
-    torch.save(state, '/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7')
+    if not os.path.isdir('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults'):
+        os.mkdir('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults')
+    torch.save(state, '/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7')
         
     if acc > best_acc:
         print('Saving..')
@@ -215,9 +211,9 @@ def test(epoch):
             'acc': acc,
             'epoch': epoch,
         }
-        if not os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults'):
-            os.mkdir('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults')
-        torch.save(state, '/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7')
+        if not os.path.isdir('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults'):
+            os.mkdir('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults')
+        torch.save(state, '/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7')
         best_acc = acc
 
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[80,120], gamma=0.1, last_epoch=-1)
@@ -227,7 +223,7 @@ for epoch in range(start_epoch, 150):
     train(epoch)
     test(epoch)
 
-f = open('/content/gdrive/MyDrive/AdaNorm-main/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+f = open('/content/gdrive/MyDrive/NUI/Caltech256/CheckpointsResults/Caltech256_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
 f.write('Best Accuracy:  %.3f\n'
     % (best_acc))
 f.close()
