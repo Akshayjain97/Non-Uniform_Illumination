@@ -20,7 +20,6 @@ from PIL import Image
 import cv2
 import sys
 
-# parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 # parser.add_argument('k', type=float, help='learning rate');
 # parser.add_argument('--lr', default=0.001, type=float, help='learning rate'); lr1 = '001'
 # #parser.add_argument('--lr', default=0.01, type=float, help='learning rate'); lr1 = '01'
