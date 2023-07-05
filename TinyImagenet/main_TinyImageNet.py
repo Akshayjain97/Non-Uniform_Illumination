@@ -88,22 +88,22 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(net.parameters(), lr=args.lr); optimizer1 = 'Adam'
 
 if args.resume:
-    path_to_file = '/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7'
+    path_to_file = '/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7'
     # if os.path.exists(path_to_file):
     # Load checkpoint.
     print('==> Resuming from checkpoint..')
-    assert os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults'), 'Error: no checkpoint directory found!'
+    assert os.path.isdir('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults'), 'Error: no checkpoint directory found!'
     checkpoint = torch.load(path_to_file)
     net.load_state_dict(checkpoint['net'])
     best_acc = checkpoint['acc']
     start_epoch = checkpoint['epoch']
 
-if not os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults'):
-    os.mkdir('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults')
+if not os.path.isdir('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults'):
+    os.mkdir('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults')
 
 # Training
 def train(epoch):
-    f = open('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+    f = open('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
     print('\nEpoch: %d' % epoch)
     net.train()
     train_loss = 0
@@ -130,7 +130,7 @@ def train(epoch):
     f.close()
 
 def test(epoch):
-    f = open('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+    f = open('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
     global best_acc
     net.eval()
     test_loss = 0
@@ -160,9 +160,9 @@ def test(epoch):
         'acc': acc,
         'epoch': epoch,
     }
-    if not os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults'):
-        os.mkdir('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults')
-    torch.save(state, '/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7')
+    if not os.path.isdir('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults'):
+        os.mkdir('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults')
+    torch.save(state, '/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7')
         
     if acc > best_acc:
         print('Saving..')
@@ -171,9 +171,9 @@ def test(epoch):
             'acc': acc,
             'epoch': epoch,
         }
-        if not os.path.isdir('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults'):
-            os.mkdir('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults')
-        torch.save(state, '/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7')
+        if not os.path.isdir('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults'):
+            os.mkdir('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults')
+        torch.save(state, '/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7')
         best_acc = acc
 
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[80], gamma=0.1, last_epoch=-1)
@@ -183,7 +183,7 @@ for epoch in range(start_epoch, 100):
     train(epoch)
     test(epoch)
 
-f = open('/content/gdrive/MyDrive/AdaNorm-main/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+f = open('/content/gdrive/MyDrive/NUI/TinyImageNet/CheckpointsResults/TinyImageNet_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
 f.write('Best Accuracy:  %.3f\n'
     % (best_acc))
 f.close()
