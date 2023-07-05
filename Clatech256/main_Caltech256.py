@@ -19,7 +19,7 @@ from masking_functions import *
 import pandas as pd
 
 
-parser = argparse.ArgumentParser(description='PyTorch TinyImageNet Training')
+parser = argparse.ArgumentParser(description='PyTorch Caltech Training')
 #parser.add_argument('--lr', default=0.0001, type=float, help='learning rate'); lr1 = '0001'
 parser.add_argument('--lr', default=0.001, type=float, help='learning rate'); lr1 = '001'
 #parser.add_argument('--lr', default=0.01, type=float, help='learning rate'); lr1 = '01'
