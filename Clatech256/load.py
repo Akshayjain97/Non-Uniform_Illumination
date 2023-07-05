@@ -1,4 +1,3 @@
-'''Train CIFAR10 with PyTorch.'''
 from __future__ import print_function
 import torch
 import torch.nn as nn
@@ -68,55 +67,10 @@ for x in range(0,32):
         # a=50-abs(16-x)*abs(16-y)
         # if(pow(16-x,2)+pow(16-y,2)<=144):a=50-abs(16-x)*abs(16-y)
 
-        
-        # if(x==0 or x==1):k=-2.2
-        # elif(x==2 or x==3):k=-1.8
-        # elif(x==4 or x==5):k=-1.4
-        # elif(x==6 or x==7):k=-1
-        # elif(x==8 or x==9):k=-0.8
-        # elif(x==10 or x==11):k=-0.4
-        # elif(x==12 or x==13):k=-0.2
-        # elif(x==14 or x==15):k=0.0
-        # elif(x==16 or x==17):k=0.2
-        # elif(x==18 or x==19):k=0.4
-        # elif(x==20 or x==21):k=0.6
-        # elif(x==22 or x==23):k=0.8
-        # elif(x==24 or x==25):k=1.0
-        # elif(x==26 or x==27):k=1.4
-        # elif(x==28 or x==29):k=1.8
-        # elif(x==30 or x==31):k=2.2
+
 
         a=k*a
         mask[x][y]=np.array((a,a,a))
-        # p,q,r=mask[x][y]
-        # if(p>255):p=255
-        # if(q>255):q=255
-        # if(r>255):r=255
-        # if(p<0):p=0
-        # if(q<0):q=0
-        # if(r<0):r=0 
-#         #b=int(b/255)*255+(1-int(b/255))*b
-        # mask[x][y]=(p,q,r)
-#         mask[x][y]=np.uint8(mask[x][y])
-
-
-
-##read image
-#img_src = cv2.imread('/content/9654.jpg')
-
-##edge detection filter
-# #kernel = np.array([[0.0, -1.0, 0.0], 
-#                    [-1.0, 5.0, -1.0],
-#                    [0.0, -1.0, 0.0]])
-
-#kernel = kernel/(10*(np.sum(kernel)) if np.sum(kernel)!=0 else 1)
-
-##filter the source image
-#mask = cv2.filter2D(img_src,-1,kernel)
-
-##save result image
-#cv2.imwrite('/content/res.jpg',mask)
-
 
 
 class Illuminate():
@@ -174,7 +128,7 @@ if device == 'cuda':
     cudnn.benchmark = True
 criterion = nn.CrossEntropyLoss()
 # optimizer = optim.Adam(net.parameters(), lr=args.lr); optimizer1 = 'Adam'
-load_model(torch.load("/content/gdrive/MyDrive/AdaNorm-main/Perturbed_TinyImageNet_B64_LR001_vgg16_Adam.t7"))
+load_model(torch.load("/content/gdrive/MyDrive/NUI/Perturbed_TinyImageNet_B64_LR001_vgg16_Adam.t7"))
 
 
 net.eval()
@@ -197,7 +151,7 @@ with torch.no_grad():
 
     # Save checkpoint.
     acc = 100. * correct / total
-path1='/content/gdrive/MyDrive/AdaNorm-main/result'
+path1='/content/gdrive/MyDrive/NUI/result'
 path2='Perturbed_Quadrant'
 if not os.path.isdir(path1):
     os.mkdir(path1)
