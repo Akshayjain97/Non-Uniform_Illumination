@@ -80,7 +80,7 @@ bs = 64 #set batch size
 
 
 class ImageDataset(Dataset):
-    def __init__(self, annotations_file, transform=None, target_transform=None):
+    def __init__(self, annotations_file, transform=None):
         self.img_labels = pd.read_csv(annotations_file)
         #self.img_dir = img_dir
         self.transform = transform
@@ -104,11 +104,11 @@ class ImageDataset(Dataset):
 
 
 
-training_data= ImageDataset('/content/Train_labels.csv',transform=transform_train,target_transform=transform_test)
+training_data= ImageDataset('/content/Train_labels.csv',transform=transform_train)
 trainloader = DataLoader(training_data, batch_size=bs, shuffle=True,num_workers=2)
 
 
-test_data= ImageDataset('/content/Test_labels.csv',transform=transform_train,target_transform=transform_test)
+test_data= ImageDataset('/content/Test_labels.csv',transform=transform_test)
 testloader = DataLoader(test_data, batch_size=bs, shuffle=False,num_workers=2)
 
 
