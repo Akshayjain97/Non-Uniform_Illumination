@@ -95,36 +95,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=bs, shuffle=False, 
 #classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
 
-"""
-class ImageDataset(Dataset):
-    def __init__(self, annotations_file, img_dir, transform=None, target_transform=None):
-        self.img_labels = pd.read_csv(annotations_file)
-        self.img_dir = img_dir
-        self.transform = transform
-        self.target_transform = target_transform
 
-    def __len__(self):
-        return len(self.img_labels)
-
-    def __getitem__(self, idx):
-        img_path = os.path.join(self.img_dir, self.img_labels.iloc[idx, 0])
-        #img_path=img_path[:-1]
-        # image = read_image(img_path)
-        image = Image.open(img_path).convert("RGB")
-      
-        label = self.img_labels.iloc[idx, 1]
-        if self.transform:
-            image = self.transform(image)
-        label = torch.tensor(label)
-        return image, label
-
-training_data= ImageDataset('/content/training_label.csv','/content/train',transform=transform_train,target_transform=transform_test)
-trainloader = DataLoader(training_data, batch_size=64, shuffle=True,num_workers=2)
-
-
-test_data= ImageDataset('/content/test_label.csv','/content/test',transform=transform_train,target_transform=transform_test)
-testloader = DataLoader(test_data, batch_size=64, shuffle=False,num_workers=2)
-"""
 # Model
 print('==> Building model..')
 net = VGG('VGG16'); net1 = 'vgg16'
@@ -145,7 +116,7 @@ optimizer = optim.Adam(net.parameters(), lr=args.lr); optimizer1 = 'Adam'
 #optimizer = AdaBeliefNorm(net.parameters(), lr=args.lr); optimizer1 = 'AdaBeliefNorm'
 
 if args.resume:
-    path_to_file = '/content/gdrive/MyDrive/AdaNorm-main/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7'
+    path_to_file = '/content/gdrive/MyDrive/NUI/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7'
     # if os.path.exists(path_to_file):
     # Load checkpoint.
     print('==> Resuming from checkpoint..')
@@ -160,7 +131,7 @@ if not os.path.isdir('CheckpointsResults'):
 
 # Training
 def train(epoch):
-    f = open('/content/gdrive/MyDrive/AdaNorm-main/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+    f = open('/content/gdrive/MyDrive/NUI/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
     print('\nEpoch: %d' % epoch)
     net.train()
     train_loss = 0
@@ -189,7 +160,7 @@ def train(epoch):
     f.close()
 
 def test(epoch):
-    f = open('/content/gdrive/MyDrive/AdaNorm-main/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+    f = open('/content/gdrive/MyDrive/NUI/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
     global best_acc
     net.eval()
     test_loss = 0
@@ -221,7 +192,7 @@ def test(epoch):
     }
     if not os.path.isdir('CheckpointsResults'):
         os.mkdir('CheckpointsResults')
-    torch.save(state, '/content/gdrive/MyDrive/AdaNorm-main/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7')
+    torch.save(state, '/content/gdrive/MyDrive/NUI/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'_intermediate.t7')
         
     if acc > best_acc:
         print('Saving..')
@@ -232,7 +203,7 @@ def test(epoch):
         }
         if not os.path.isdir('CheckpointsResults'):
             os.mkdir('CheckpointsResults')
-        torch.save(state, '/content/gdrive/MyDrive/AdaNorm-main/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7')
+        torch.save(state, '/content/gdrive/MyDrive/NUI/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.t7')
         best_acc = acc
         
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[80], gamma=0.1, last_epoch=-1)
@@ -242,7 +213,7 @@ for epoch in range(start_epoch, 100):
     train(epoch)
     test(epoch)
 
-f = open('/content/gdrive/MyDrive/AdaNorm-main/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
+f = open('/content/gdrive/MyDrive/NUI/CIFAR10/CheckpointsResults/CIFAR10_B'+str(bs)+'_LR'+lr1+'_'+net1+'_'+optimizer1+'.txt', 'a')
 f.write('Best Accuracy:  %.3f\n'
     % (best_acc))
 f.close()
