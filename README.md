@@ -27,3 +27,15 @@ given above and similarly all the other rows contains images perturbed using the
 respectively
 
 Below are the Accuracy, precision, recall and F1-score for the mobilenetV4-small model
+![1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/5f9a9098-c81a-412c-a72c-22c2aba41625)
+![precision_1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/834f466a-ffe0-4b7f-91f8-de57fea9abf6)
+![recall_1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/dd4f9700-f8c4-4771-84c5-8eff78acbbfe)
+![F1_1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/bd2ae9b9-b1e1-4636-a96f-10e5899da84c)
+
+
+
+To describe the changes in the data distribution due to NUI attack, we have shown TSNE graph
+![mob_unperturbed](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/13e5a5eb-998d-4289-8c82-edff67f6780b)
+The above graph is the TSNE for the original data and the below graph is the TSNE after applying the NUI attack using one of the mask
+![mob10_pos](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/8670105e-5808-4726-b670-854a51c2a238)
+
