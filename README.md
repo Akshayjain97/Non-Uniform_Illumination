@@ -27,6 +27,28 @@ given above and similarly all the other rows contains images perturbed using the
 respectively
 
 Below are the Accuracy, precision, recall and F1-score for the mobilenetV4-small model
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+
+  <div style="flex: 1; min-width: 200px; padding: 10px;">
+    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/5f9a9098-c81a-412c-a72c-22c2aba41625" alt="method_diag" width="200"/>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; padding: 10px;">
+    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/834f466a-ffe0-4b7f-91f8-de57fea9abf6" alt="method_diag" width="200"/>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; padding: 10px;">
+    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/dd4f9700-f8c4-4771-84c5-8eff78acbbfe" alt="method_diag" width="200"/>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; padding: 10px;">
+    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/bd2ae9b9-b1e1-4636-a96f-10e5899da84c" alt="method_diag" width="200"/>
+  </div>
+
+</div>
+
+
 ![1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/5f9a9098-c81a-412c-a72c-22c2aba41625)
 ![precision_1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/834f466a-ffe0-4b7f-91f8-de57fea9abf6)
 ![recall_1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/dd4f9700-f8c4-4771-84c5-8eff78acbbfe)
