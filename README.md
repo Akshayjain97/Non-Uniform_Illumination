@@ -21,32 +21,24 @@ the CNN models using the NUI attack technique.
 # Result
 ![2](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/310ca582-851d-43fe-b242-2f3c7c7ed26a)
 
-We have applied 12 different masks in order to perform the NUI attack. In the above figure, the effect of the NUI attack on different images is shown. Here the 1st row is the original images and the later rows
+We have applied 12 different masks to perform the NUI attack. In the above figure, the effect of the NUI attack on different images is shown. Here the 1st row is the original images and the later rows
 contain the transformed images after the NUI attack. The 2nd row contains images perturbed using mask function mask(1)
-given above and similarly all the other rows contains images perturbed using the mask function from mask(2) to mask(12)
+given above and similarly all the other rows contain images perturbed using the mask function from mask(2) to mask(12)
 respectively
 
 Below are the Accuracy, precision, recall and F1-score for the mobilenetV4-small model
 
-<div style="display: flex; flex-wrap: nowrap; justify-content: space-around;">
 
-  <div style="flex: 1; min-width: 200px; padding: 10px;">
-    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/5f9a9098-c81a-412c-a72c-22c2aba41625" alt="method_diag" width="200"/>
-  </div>
 
-  <div style="flex: 1; min-width: 200px; padding: 10px;">
-    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/834f466a-ffe0-4b7f-91f8-de57fea9abf6" alt="method_diag" width="200"/>
-  </div>
+<table>
+  <tr>
+    <td><img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/5f9a9098-c81a-412c-a72c-22c2aba41625" alt="method_diag" width="200"/></td>
+    <td><img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/834f466a-ffe0-4b7f-91f8-de57fea9abf6" alt="method_diag" width="200"/></td>
+    <td><img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/dd4f9700-f8c4-4771-84c5-8eff78acbbfe" alt="method_diag" width="200"/></td>
+    <td><img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/bd2ae9b9-b1e1-4636-a96f-10e5899da84c" alt="method_diag" width="200"/></td>
 
-  <div style="flex: 1; min-width: 200px; padding: 10px;">
-    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/dd4f9700-f8c4-4771-84c5-8eff78acbbfe" alt="method_diag" width="200"/>
-  </div>
-
-  <div style="flex: 1; min-width: 200px; padding: 10px;">
-    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/bd2ae9b9-b1e1-4636-a96f-10e5899da84c" alt="method_diag" width="200"/>
-  </div>
-
-</div>
+  </tr>
+</table>
 
 
 ![1](https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/5f9a9098-c81a-412c-a72c-22c2aba41625)
