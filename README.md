@@ -1,5 +1,5 @@
 # Non-Uniform_Illumination
-we introduce an attack technique, which is the Non-Uniform Illumination (NUI) of images to fool the CNN models. In this attack, the images are perturbed by adding a NUI mask of different intensities.
+we introduce a novel attack technique, Non-Uniform Illumination (NUI), where images are subtly altered using varying NUI masks.
 
 The (NUI) attack mask is created using several non-linear equations generating non-uniform variations of brightness and darkness exploiting the spatial structure of the image. We demonstrate how the proposed (NUI) attack degrades the performance of VGG, ResNet, MobilenetV3-small and InceptionV3 models on various renowned datasets, including CIFAR10, Caltech256, and TinyImageNet. We evaluate the proposed attack’s effectiveness on various classes of images.
 
@@ -8,7 +8,7 @@ The (NUI) attack mask is created using several non-linear equations generating n
 <div style="display: flex; justify-content: space-around; flex-wrap: nowrap;">
 
   <div style="padding: 10px;">
-    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/88e2d850-58ed-4991-9cb8-fd345143db02" alt="method_diag" width="500"/>
+    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/88e2d850-58ed-4991-9cb8-fd345143db02" alt="method_diag" width="600"/>
   </div>
 </div>
 
@@ -24,7 +24,7 @@ transformed test set.
 <div style="display: flex; justify-content: space-around; flex-wrap: nowrap;">
 
   <div style="padding: 10px;">
-    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/6a57b512-ff1a-4610-b689-c35155d572d0" alt="method_diag" width="500"/>
+    <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/6a57b512-ff1a-4610-b689-c35155d572d0" alt="method_diag" width="600"/>
   </div>
 </div>
 
