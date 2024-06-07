@@ -28,7 +28,7 @@ respectively
 
 Below are the Accuracy, precision, recall and F1-score for the mobilenetV4-small model
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+<div style="display: flex; flex-wrap: nowrap; justify-content: space-around;">
 
   <div style="flex: 1; min-width: 200px; padding: 10px;">
     <img src="https://github.com/Akshayjain97/Non-Uniform_Illumination/assets/131511513/5f9a9098-c81a-412c-a72c-22c2aba41625" alt="method_diag" width="200"/>
