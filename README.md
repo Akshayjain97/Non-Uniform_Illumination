@@ -40,8 +40,9 @@ Below are the Accuracy, precision, recall and F1-score for the mobilenetV4-small
   </tr>
 </table>
 
-To describe the changes in the data distribution due to the NUI attack, we have shown the TSNE graph
-The below graphs are the TSNE for the original data and data after applying the NUI attack using one of the mask
+To describe the changes in the data distribution due to the NUI attack, we have shown the TSNE graph.
+
+The below graphs are the TSNE for the original data and data after applying the NUI attack using one of the mask, calculated using MobilenetV3-small
 
 <table>
   <tr>
