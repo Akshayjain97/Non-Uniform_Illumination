@@ -75,7 +75,5 @@ The below graphs are the TSNE for the original data and data after applying the 
 Find our work at https://ieeexplore.ieee.org/document/10916770 or access the **arxiv_paper** pdf in the repository.
 
 **Cite our work using:**
-A. Jain, S. R. Dubey, S. K. Singh, K. Santosh and B. B. Chaudhuri, "Non-Uniform Illumination Attack for Fooling Convolutional Neural Networks," in IEEE Transactions on Artificial Intelligence, doi: 10.1109/TAI.2025.3549396.
-keywords: {Lighting;Convolutional neural networks;Robustness;Brightness;Perturbation methods;Training;Neural networks;Data models;Computational modeling;Artificial intelligence;Convolutional Neural Network;Robustness;Non-Uniform Illumination;Deep Learning;Image Categorization;Fooling Deep Models},
-
+A. Jain, S. R. Dubey, S. K. Singh, K. Santosh and B. B. Chaudhuri, "Non-Uniform Illumination Attack for Fooling Convolutional Neural Networks," IEEE Transactions on Artificial Intelligence, March 2025.
 
